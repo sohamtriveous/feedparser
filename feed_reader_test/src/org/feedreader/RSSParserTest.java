@@ -38,13 +38,17 @@ public class RSSParserTest extends TestCase {
 		assertTrue("Did you pass a NULL URL?",  this.sampleURL != null);
 	}
 	
-	public void testNumberOfItemsInRSSFeed() {
-		Document xmlDoc;
+	public void testListOfTitles() {
 		try {
-			List listOfItemsInFeed = parser.parseRSSFeed(this.sampleURL);
-			assertTrue(listOfItemsInFeed.size() == 10);
+			List listOfTitles = parser.getListOfTitles(this.sampleURL);
+			//System.out.println("lit of titles "+listOfTitles);
+			System.out.println("'" + listOfTitles.get(0) + "'");
+			assertEquals(listOfTitles.size(),10);
+			assertEquals(listOfTitles.get(0),"Wash your sins online at Saranam.com");
+			assertEquals(listOfTitles.get(9),"‘I unlock Joy’ program for developers &amp; students – Windows Phones up for grabs");
 		} catch (Exception e) {
 			fail("Exception thrown: " + e.getMessage());
+			e.printStackTrace();
 		}
 	}
 	
