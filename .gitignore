@@ -1,1 +1,6 @@
-*/bin/*
+local.properties
+*.log*
+*.swp*
+*.apk*
+**/bin/*
+**/coverage/*
