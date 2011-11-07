@@ -36,7 +36,7 @@ public class RSSParserTest extends TestCase {
 			System.out.println("'" + listOfTitles.get(0) + "'");
 			assertEquals(10,listOfTitles.size());
 			assertEquals("Wash your sins online at Saranam.com", listOfTitles.get(0));
-			assertEquals("‘I unlock Joy’ program for developers & students – Windows Phones up for grabs", listOfTitles.get(9));
+			assertEquals("'I unlock Joy' program for developers & students - Windows Phones up for grabs", listOfTitles.get(9));
 	}
 	
 }
