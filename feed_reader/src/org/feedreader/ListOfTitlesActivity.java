@@ -1,6 +1,6 @@
 package org.feedreader;
 
-import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ListActivity;
@@ -11,12 +11,16 @@ public class ListOfTitlesActivity extends ListActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		RSSParser rssParser = new RSSParser();
-		List titles = rssParser.getListOfTitles(new URL(""));		
+		List<String> titles = new ArrayList<String>();
+		try {
+			RSSParser rssParser = new RSSParser(getString(R.string.feed_url));
+			titles = rssParser.getListOfTitles();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		} 	
 		setContentView(R.layout.main);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.row,new String[10]);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.row,(String[])(titles.toArray(new String[0])));
 		this.setListAdapter(adapter);
 	}
 	

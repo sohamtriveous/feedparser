@@ -1,39 +1,47 @@
 package org.feedreader;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.w3c.dom.CharacterData;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import android.sax.Element;
-import android.sax.EndElementListener;
 import android.sax.EndTextElementListener;
 import android.sax.RootElement;
 import android.util.Xml;
 
 public class RSSParser {
 
+	private static final String CHANNEL = "channel";
 	private static final String ROOT_ELEMENT = "rss";
 	private static final String TITLE = "title";
 	private static final String ITEM = "item";
 
-	public List getListOfTitles(URL feedURL)
+	private URL feedURL = null;
+	
+	public RSSParser(String urlString)throws Exception {
+		try{
+			feedURL = new URL(urlString);
+		}
+		catch(MalformedURLException exception){
+			feedURL = getClass().getResource(urlString);
+		}
+		if(feedURL == null){
+			throw new Exception("Invalid URL Exception");
+		}
+	}
+
+	public List<String> getListOfTitles()
 			throws ParserConfigurationException, SAXException, IOException {
-		final List listOfItems = new ArrayList();
+		final List<String> listOfItems = new ArrayList<String>();
 
 		RootElement root = new RootElement(ROOT_ELEMENT);
-		Element itemElement = root.getChild("channel").getChild(ITEM);
+		Element itemElement = root.getChild(CHANNEL).getChild(ITEM);
 		itemElement.getChild(TITLE).setEndTextElementListener(
 				new EndTextElementListener() {
 					@Override
