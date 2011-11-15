@@ -20,6 +20,7 @@ public class RSSParserTest extends TestCase {
 
 	protected void setUp() throws Exception {
 		super.setUp();
+		sampleURL = this.getClass().getResource(sampleURL).toString();
 	}
 
 	protected void tearDown() throws Exception {

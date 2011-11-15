@@ -10,9 +10,11 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
+import android.content.res.Resources;
 import android.sax.Element;
 import android.sax.EndTextElementListener;
 import android.sax.RootElement;
+import android.util.Log;
 import android.util.Xml;
 
 public class RSSParser {
@@ -25,13 +27,11 @@ public class RSSParser {
 	private URL feedURL = null;
 	
 	public RSSParser(String urlString)throws Exception {
+		Log.d("RSSParser", "URL "+urlString);
 		try{
 			feedURL = new URL(urlString);
 		}
 		catch(MalformedURLException exception){
-			feedURL = getClass().getResource(urlString);
-		}
-		if(feedURL == null){
 			throw new Exception("Invalid URL Exception");
 		}
 	}

@@ -82,4 +82,28 @@
     <!-- version-tag: 1 -->
     <import file="${sdk.dir}/tools/ant/build.xml" />
 
+	<target name="test" depends="-test-project-check"
+            description="Runs tests from the package defined in test.package property">
+      <echo>Running tests ...</echo>
+      <exec executable="${adb}" failonerror="true" outputproperty="tests.output">
+        <arg value="shell" />
+        <arg value="am" />
+        <arg value="instrument" />
+        <arg value="-w" />
+        <arg value="-e" />
+        <arg value="coverage" />
+        <arg value="false" />
+        <arg value="org.feedreader.test/android.test.InstrumentationTestRunner" />
+      </exec>
+      <echo message="${tests.output}"/>
+      <fail message="Tests failed!!!">
+         <condition>
+           <or>
+            <contains string="${tests.output}" substring="Error" />
+            <contains string="${tests.output}" substring="Fail" />
+          </or>
+         </condition>
+      </fail>
+  </target>
+
 </project>
