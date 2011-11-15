@@ -25,7 +25,7 @@ public class ListActivityInstrumentationTest extends
 
 	@Smoke
 	public void testTitleListing() throws Exception {
-		assertEquals(solo.searchText(getActivity().getString(R.string.app_name)),true);
-		assertEquals(getActivity().getListAdapter().getCount(),Constants.NUMBER_OF_TITLES);
+		assertEquals(true,solo.searchText(getActivity().getString(R.string.app_name)));
+		assertEquals(Constants.NUMBER_OF_TITLES,getActivity().getListAdapter().getCount());
 	}
 }
