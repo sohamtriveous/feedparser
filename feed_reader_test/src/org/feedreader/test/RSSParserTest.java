@@ -2,6 +2,7 @@ package org.feedreader.test;
 
 import java.util.List;
 
+import org.feedreader.FeedItem;
 import org.feedreader.RSSParser;
 
 import junit.framework.TestCase;
@@ -48,23 +49,20 @@ public class RSSParserTest extends TestCase {
 		}
 	}
 	
-	public void testShouldNotThrowExceptionIfFileIsAvailableAsClasspathResource(){
-		try{
-			parser = new RSSParser(this.sampleURL);
-		}
-		catch(Exception exception){
-			fail("Should not throw error if the resource is found");
-		}
-	}
-	
-	public void testListOfTitles() throws Exception {
+	public void testListOfItemsFromFeed()throws Exception{
 		parser = new RSSParser(this.sampleURL);
-		List<String> listOfTitles = parser.getListOfTitles();
-		// System.out.println("lit of titles "+listOfTitles);
-		System.out.println("'" + listOfTitles.get(0) + "'");
-		assertEquals(Constants.NUMBER_OF_TITLES, listOfTitles.size());
-		assertEquals(Constants.TITLE_OF_FIRST_ARTICLE, listOfTitles.get(0));
-		assertEquals(Constants.TITLE_OF_LAST_ARTICLE, listOfTitles.get(9));
+		List<FeedItem> items = parser.getListOfItemsFromFeed();
+		FeedItem firstItem = items.get(0);
+		FeedItem lastItem = items.get(9);
+		System.out.println("First Item "+firstItem);
+		System.out.println("Last Item "+lastItem);
+		assertEquals(Constants.NUMBER_OF_ITEMS, items.size());
+		assertEquals(Constants.TITLE_OF_FIRST_ARTICLE, firstItem.getTitle());
+		assertEquals(Constants.TITLE_OF_LAST_ARTICLE, lastItem.getTitle());
+		assertNotNull(firstItem.getContent());
+		assertNotNull(lastItem.getContent());		
+		assertNotNull(firstItem.getLink());
+		assertNotNull(lastItem.getLink());		
 	}
 
 }
