@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">ListStories</string>
     <string name="feed_url">http://feeds.feedburner.com/yourstory/news</string>
+
 </resources>
