@@ -49,14 +49,6 @@ public class RSSParserTest extends TestCase {
 		}
 	}
 	
-	public void testListOfTitles() throws Exception {
-		parser = new RSSParser(this.sampleURL);
-		List<String> listOfTitles = parser.getListOfTitles();
-		assertEquals(Constants.NUMBER_OF_TITLES, listOfTitles.size());
-		assertEquals(Constants.TITLE_OF_FIRST_ARTICLE, listOfTitles.get(0));
-		assertEquals(Constants.TITLE_OF_LAST_ARTICLE, listOfTitles.get(9));
-	}
-	
 	public void testListOfItemsFromFeed()throws Exception{
 		parser = new RSSParser(this.sampleURL);
 		List<FeedItem> items = parser.getListOfItemsFromFeed();

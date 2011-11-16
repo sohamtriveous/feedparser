@@ -37,9 +37,12 @@ public class ListOfTitlesActivityTest extends ActivityUnitTestCase<ListOfTitlesA
 	
 	public void testListActivityContainsAllTitles() throws ParserConfigurationException, SAXException, IOException {
 		this.listOfTitlesActivity = startActivity(intent, null, null);
-		assertEquals(Constants.NUMBER_OF_TITLES,listOfTitlesActivity.getListAdapter().getCount());
+		assertEquals(Constants.NUMBER_OF_ITEMS,listOfTitlesActivity.getListAdapter().getCount());
 //		assertEquals(Constants.TITLE_OF_FIRST_ARTICLE,listOfTitlesActivity.getListAdapter().getItem(0));
 //		assertEquals(Constants.TITLE_OF_LAST_ARTICLE,listOfTitlesActivity.getListAdapter().getItem(9));
 	}
-
+	
+	public void testItemClickOnTitle(){
+		this.listOfTitlesActivity = startActivity(intent, null, null);
+	}
 }
