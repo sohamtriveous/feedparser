@@ -101,8 +101,4 @@
 			</condition>
 		</fail>
 	</target>
-
-	<target name="update_version">
-		<replaceregexp file="./AndroidManifest.xml" match="android:versionCode=&quot;[0-9]+&quot;" replace="android:versionCode=&quot;${version}&quot;" />
-	</target>
 </project>
