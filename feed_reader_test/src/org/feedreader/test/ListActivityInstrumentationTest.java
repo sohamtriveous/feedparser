@@ -14,7 +14,7 @@ public class ListActivityInstrumentationTest extends
 	private Solo solo;
 
 	public ListActivityInstrumentationTest() {
-		super("com.example.android.notepad", ListOfTitlesActivity.class);
+		super("org.feedreader.test", ListOfTitlesActivity.class);
 
 	}
 
