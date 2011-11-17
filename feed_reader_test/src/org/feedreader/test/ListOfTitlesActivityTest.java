@@ -41,8 +41,5 @@ public class ListOfTitlesActivityTest extends ActivityUnitTestCase<ListOfTitlesA
 //		assertEquals(Constants.TITLE_OF_FIRST_ARTICLE,listOfTitlesActivity.getListAdapter().getItem(0));
 //		assertEquals(Constants.TITLE_OF_LAST_ARTICLE,listOfTitlesActivity.getListAdapter().getItem(9));
 	}
-	
-	public void testItemClickOnTitle(){
-		this.listOfTitlesActivity = startActivity(intent, null, null);
-	}
+
 }
