@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFFFF"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -15,28 +16,36 @@
             android:layout_height="wrap_content"
             android:text="Spruce up your e-image with Xtreme Digital Solutions" />
 
+        <View
+            android:id="@+id/topRule"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/storyTitle"
+            android:background="#FFCCCCCC" />
+
         <WebView
             android:id="@+id/storyDescription"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/bottomButtonContainer"
-            android:layout_below="@+id/storyTitle" />
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottomRule"
+            android:layout_below="@+id/topRule" />
 
-        <RelativeLayout
-            android:id="@+id/bottomButtonContainer"
+        <View
+            android:id="@+id/bottomRule"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true" >
-        </RelativeLayout>
+            android:layout_height="1dp"
+            android:layout_above="@+id/shareButton"
+            android:background="#FFCCCCCC" />
 
         <Button
             android:id="@+id/shareButton"
-            android:layout_width="match_parent"
+            style="@style/largeButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/bottomButtonContainer"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:background="@drawable/share_button"
             android:text="@string/share_button_label" />
-
     </RelativeLayout>
 
 </LinearLayout>
