@@ -5,7 +5,7 @@ public class FeedItem {
 
 	private String title;
 	private String content;
-	private String link;
+	private String contentURL;
 	
 	public String getTitle() {
 		return title;
@@ -19,17 +19,17 @@ public class FeedItem {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getLink() {
-		return link;
+	public String getContentURL() {
+		return contentURL;
 	}
-	public void setLink(String link) {
-		this.link = link;
+	public void setContentURL(String link) {
+		this.contentURL = link;
 	}
 	public FeedItem copy() {
 		FeedItem feedItem = new FeedItem();
 		feedItem.setTitle(title);
 		feedItem.setContent(content);
-		feedItem.setLink(link);
+		feedItem.setContentURL(contentURL);
 		return feedItem;
 	}
 	
@@ -40,7 +40,7 @@ public class FeedItem {
 		sb.append(title);
 		sb.append('\n');
 		sb.append("Link: ");
-		sb.append(link);
+		sb.append(contentURL);
 		sb.append('\n');
 		sb.append("Content: ");
 		sb.append(content);
@@ -53,7 +53,7 @@ public class FeedItem {
 		int result = 1;
 		result = prime * result
 				+ ((content == null) ? 0 : content.hashCode());
-		result = prime * result + ((link == null) ? 0 : link.hashCode());
+		result = prime * result + ((contentURL == null) ? 0 : contentURL.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
@@ -72,10 +72,10 @@ public class FeedItem {
 				return false;
 		} else if (!content.equals(other.content))
 			return false;
-		if (link == null) {
-			if (other.link != null)
+		if (contentURL == null) {
+			if (other.contentURL != null)
 				return false;
-		} else if (!link.equals(other.link))
+		} else if (!contentURL.equals(other.contentURL))
 			return false;
 		if (title == null) {
 			if (other.title != null)

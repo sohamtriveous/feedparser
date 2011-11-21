@@ -15,7 +15,7 @@ import android.util.Xml;
 
 public class RSSParser {
 
-	private static final String LINK_FIELD = "link";
+	private static final String LINK_FIELD = "contentURL";
 	private static final String CONTENT_FIELD = "content";
 	private static final String CHANNEL = "channel";
 	private static final String ROOT_ELEMENT = "rss";
@@ -76,7 +76,6 @@ public class RSSParser {
 		@Override
 		public void end(String body) {
 			try {
-				System.out.println("method to be called " + setterMethodName);
 				Method method = feedItem.getClass().getMethod(setterMethodName,
 						String.class);
 				method.invoke(feedItem, body);

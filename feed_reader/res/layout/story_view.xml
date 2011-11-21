@@ -28,6 +28,15 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true" >
         </RelativeLayout>
+
+        <Button
+            android:id="@+id/shareButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bottomButtonContainer"
+            android:layout_centerHorizontal="true"
+            android:text="@string/share_button_label" />
+
     </RelativeLayout>
 
 </LinearLayout>

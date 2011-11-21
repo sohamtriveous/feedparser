@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ListOfTitlesActivity extends ListActivity {
 
@@ -48,6 +47,7 @@ public class ListOfTitlesActivity extends ListActivity {
 				ShowFeedDetailsActivity.class);
 		showDetailsIntent.putExtra("title", item.getTitle());
 		showDetailsIntent.putExtra("content", item.getContent());
+		showDetailsIntent.putExtra("contentURL", item.getContentURL());
 		startActivity(showDetailsIntent);
 		//Toast.makeText(this, "Clicked on "+item.getTitle(), Toast.LENGTH_SHORT).show();
 	}
