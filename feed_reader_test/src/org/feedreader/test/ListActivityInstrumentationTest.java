@@ -40,13 +40,12 @@ public class ListActivityInstrumentationTest extends
 	}
 	
 	public void testItemClick() throws Exception{
-		solo.sleep(100);
-		String firstTitle = ((FeedItem)getActivity().getListAdapter().getItem(0)).getTitle();
+		solo.sleep(100);		
 		solo.clickInList(0);
+		String firstTitle = ((FeedItem)getActivity().getListAdapter().getItem(0)).getTitle();
 		solo.sleep(100);
 		assertEquals(firstTitle, ((TextView)solo.getView(R.id.storyTitle)).getText());
 		solo.assertCurrentActivity("",ShowFeedDetailsActivity.class);
-//		solo.scrollDown();
 		solo.goBack();
 		solo.sleep(100);
 		solo.scrollDown();

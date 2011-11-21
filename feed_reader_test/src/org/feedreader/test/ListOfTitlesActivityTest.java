@@ -11,7 +11,7 @@ import android.test.ActivityUnitTestCase;
 
 public class ListOfTitlesActivityTest extends ActivityUnitTestCase<ListOfTitlesActivity> {
 
-	ListOfTitlesActivity listOfTitlesActivity;
+	private ListOfTitlesActivity listOfTitlesActivity;
 	private Intent intent;
 	
 	public ListOfTitlesActivityTest() {
@@ -21,8 +21,6 @@ public class ListOfTitlesActivityTest extends ActivityUnitTestCase<ListOfTitlesA
 	protected void setUp() throws Exception {
 		super.setUp();
 		intent = new Intent(Intent.ACTION_MAIN);
-//		setActivityContext(getInstrumentation().getContext());
-//		getActivity().getApplicationContext().getAssets().
 	}
 
 	protected void tearDown() throws Exception {

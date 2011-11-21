@@ -22,7 +22,7 @@ public class FeedItemTest extends TestCase {
 	public void testCopy(){
 		feedItem.setContent("content");
 		feedItem.setTitle("Title");
-		feedItem.setLink("link");
+		feedItem.setContentURL("link");
 		FeedItem copiedItem = feedItem.copy();
 		assertEquals(feedItem,copiedItem);
 		assertEquals(feedItem.toString(),copiedItem.toString());

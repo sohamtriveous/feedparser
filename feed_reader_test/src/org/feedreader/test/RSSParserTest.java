@@ -61,8 +61,8 @@ public class RSSParserTest extends TestCase {
 		assertEquals(Constants.TITLE_OF_LAST_ARTICLE, lastItem.getTitle());
 		assertNotNull(firstItem.getContent());
 		assertNotNull(lastItem.getContent());		
-		assertNotNull(firstItem.getLink());
-		assertNotNull(lastItem.getLink());		
+		assertNotNull(firstItem.getContentURL());
+		assertNotNull(lastItem.getContentURL());		
 	}
 
 }
