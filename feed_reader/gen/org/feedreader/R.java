@@ -29,6 +29,8 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int feed_url=0x7f050001;
         public static final int share_button_label=0x7f050002;
+        public static final int share_message=0x7f050003;
+        public static final int share_message_type=0x7f050004;
     }
     public static final class style {
         public static final int ListItemTitle=0x7f040000;
