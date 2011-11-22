@@ -52,6 +52,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:background="@drawable/share_button"
+            android:drawableLeft="@drawable/ic_menu_share"
             android:text="@string/share_button_label" />
     </RelativeLayout>
 

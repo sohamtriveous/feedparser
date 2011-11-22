@@ -47,6 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/share_button"
+            android:drawableLeft="@drawable/ic_menu_share"
             android:text="@string/share_button_label" />
     </LinearLayout>
 
