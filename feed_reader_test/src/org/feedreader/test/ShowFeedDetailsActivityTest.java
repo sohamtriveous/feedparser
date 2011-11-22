@@ -13,7 +13,7 @@ public class ShowFeedDetailsActivityTest extends ActivityUnitTestCase<ShowFeedDe
 	private ShowFeedDetailsActivity feedDetailsActivity;
 	private Intent intent;
 	private String sampleTitle = "Sample title"; 
-	private String sampleContentURL = "http://yourstory.in/2011/11/wash-your-sins-online-at-saranam-com/";
+	private String sampleContent = "Sample content";
 	
 	public ShowFeedDetailsActivityTest() {
 		super(ShowFeedDetailsActivity.class);
@@ -23,8 +23,7 @@ public class ShowFeedDetailsActivityTest extends ActivityUnitTestCase<ShowFeedDe
 		super.setUp();
 		intent = new Intent(Intent.ACTION_MAIN);
 		intent.putExtra("title", sampleTitle);		
-		intent.putExtra("contentURL", sampleContentURL);
-//		intent.putExtra("content", sampleTitle);
+		intent.putExtra("content", sampleContent);
 		
 	}
 
@@ -32,13 +31,17 @@ public class ShowFeedDetailsActivityTest extends ActivityUnitTestCase<ShowFeedDe
 		super.tearDown();
 	}
 	
-	public void testShowDetails(){
+	public void testPrecondition(){
 		feedDetailsActivity = startActivity(intent, null, null);
 		assertNotNull(getActivity());
+	}
+	
+	public void testShowDetails(){
+		feedDetailsActivity = startActivity(intent, null, null);
 		TextView titleView = (TextView)feedDetailsActivity.findViewById(R.id.storyTitle);
 		assertEquals(sampleTitle, titleView.getText());
 		WebView webView = (WebView)feedDetailsActivity.findViewById(R.id.storyDescription);
 		assertNotNull(webView);
 	}
-
+	
 }

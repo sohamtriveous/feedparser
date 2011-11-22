@@ -4,5 +4,7 @@
     <string name="app_name">ListStories</string>
     <string name="feed_url">http://feeds.feedburner.com/yourstory/news</string>
     <string name="share_button_label">Share</string>
+    <string name="share_message">Interesting article</string>
+    <string name="share_message_type">text/plain</string>
 
 </resources>
