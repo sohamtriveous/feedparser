@@ -18,13 +18,6 @@
             android:adjustViewBounds="true"
             android:src="@drawable/feeder_logo" />
 
-        <Button
-            android:id="@+id/infoButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:layout_weight="0.85"
-            android:text="i" />
     </LinearLayout>
 
     <ListView
