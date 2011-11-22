@@ -21,7 +21,6 @@ public class ShowFeedDetailsActivity extends Activity {
 		WebView web = (WebView) findViewById(R.id.storyDescription);
 		TextView textView = (TextView) findViewById(R.id.storyTitle);
 		String content = intent.getStringExtra("content");
-		Log.d("Details activity", "content" + content);
 		web.loadDataWithBaseURL(url, content, "text/html", "utf-8", "");
 		textView.setText(title);
 		Button shareButton = (Button) findViewById(R.id.shareButton);
