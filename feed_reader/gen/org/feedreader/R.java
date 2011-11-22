@@ -17,12 +17,13 @@ public final class R {
         public static final int share_button_pressed=0x7f020003;
     }
     public static final class id {
-        public static final int bottomRule=0x7f060004;
-        public static final int shareButton=0x7f060005;
-        public static final int storyDescription=0x7f060003;
-        public static final int storyTitle=0x7f060001;
+        public static final int articleHeaderBar=0x7f060001;
+        public static final int bottomRule=0x7f060005;
+        public static final int shareButton=0x7f060006;
+        public static final int storyDescription=0x7f060004;
+        public static final int storyTitle=0x7f060002;
         public static final int title_row=0x7f060000;
-        public static final int topRule=0x7f060002;
+        public static final int topRule=0x7f060003;
     }
     public static final class layout {
         public static final int main=0x7f030000;

@@ -9,18 +9,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <TextView
-            android:id="@+id/storyTitle"
-            style="@style/StoryTitle"
+        <LinearLayout
+            android:id="@+id/articleHeaderBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Spruce up your e-image with Xtreme Digital Solutions" />
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/storyTitle"
+                style="@style/StoryTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Spruce up your e-image with Xtreme Digital Solutions" />
+            
+        </LinearLayout>
 
         <View
             android:id="@+id/topRule"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@+id/storyTitle"
+            android:layout_below="@+id/articleHeaderBar"
             android:background="#FFCCCCCC" />
 
         <WebView
