@@ -6,5 +6,7 @@
     <string name="share_button_label">Share</string>
     <string name="share_message">Interesting article</string>
     <string name="share_message_type">text/plain</string>
+    <string name="bitly_login">multunus</string>
+    <string name="bitly_api_key">R_5648b4e6eca872e60ea39e3ee3d533a9</string>
 
 </resources>

@@ -32,6 +32,8 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f050000;
+        public static final int bitly_api_key=0x7f050006;
+        public static final int bitly_login=0x7f050005;
         public static final int feed_url=0x7f050001;
         public static final int share_button_label=0x7f050002;
         public static final int share_message=0x7f050003;
