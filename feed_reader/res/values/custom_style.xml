@@ -6,17 +6,18 @@
 		<item name="android:padding">8dp</item>
 	</style>
 	<style name="StoryTitle">
-		<item name="android:textColor">#58FAF4</item>
-		<item name="android:textSize">24sp</item>
+		<item name="android:textColor">#27629C</item>
+		<item name="android:textSize">18sp</item>
 		<item name="android:padding">8dp</item>
 		<item name="android:textStyle">bold</item>
 	</style>
 	<style name="largeButton">
 		<item name="android:textSize">18sp</item>
+		<item name="android:textColor">#FFFFFF</item>
 		<item name="android:textStyle">bold</item>
 		<item name="android:layout_marginBottom">3dp</item>
-		<item name="android:layout_marginLeft">8dp</item>
-		<item name="android:layout_marginRight">8dp</item>
+		<item name="android:paddingLeft">60dp</item>
+		<item name="android:paddingRight">60dp</item>
 		<item name="android:layout_marginTop">3dp</item>
 		<item name="android:gravity">center</item>
 	</style>
