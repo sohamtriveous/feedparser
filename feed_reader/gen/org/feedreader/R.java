@@ -19,7 +19,7 @@ public final class R {
         public static final int list_item_background=0x7f020005;
         public static final int list_pressed=0x7f020006;
         public static final int share_button=0x7f020007;
-        public static final int share_button_clickable=0x7f020008;
+        public static final int share_button_enabled=0x7f020008;
         public static final int share_button_pressed=0x7f020009;
     }
     public static final class id {
