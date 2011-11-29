@@ -9,5 +9,6 @@
     <string name="bitly_login">multunus</string>
     <string name="bitly_api_key">R_5648b4e6eca872e60ea39e3ee3d533a9</string>
     <string name="information_copy">Version 1.0 (alpha) \nDesigned and Developed by Multunus Software \nSend feedback to android@multunus.com \n\nCompany Web Site: \n    www.multunus.com \n\n Write to us at info@multunus.com if you want us to build your next mobile app</string>
-
+    <string name="powered_by">Powered By</string>
+    
 </resources>
