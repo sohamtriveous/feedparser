@@ -23,26 +23,30 @@ public final class R {
         public static final int share_button_pressed=0x7f020009;
     }
     public static final class id {
-        public static final int articleHeaderBar=0x7f060002;
-        public static final int bottomRule=0x7f060006;
-        public static final int feedLogo=0x7f060000;
-        public static final int shareButton=0x7f060007;
-        public static final int storyDescription=0x7f060005;
-        public static final int storyTitle=0x7f060003;
-        public static final int title_row=0x7f060001;
-        public static final int topRule=0x7f060004;
+        public static final int articleHeaderBar=0x7f060004;
+        public static final int back_button=0x7f060001;
+        public static final int bottomRule=0x7f060008;
+        public static final int feedLogo=0x7f060002;
+        public static final int imageView1=0x7f060000;
+        public static final int shareButton=0x7f060009;
+        public static final int storyDescription=0x7f060007;
+        public static final int storyTitle=0x7f060005;
+        public static final int title_row=0x7f060003;
+        public static final int topRule=0x7f060006;
     }
     public static final class layout {
-        public static final int main=0x7f030000;
-        public static final int row=0x7f030001;
-        public static final int story_view=0x7f030002;
-        public static final int thumbnail=0x7f030003;
+        public static final int info=0x7f030000;
+        public static final int main=0x7f030001;
+        public static final int row=0x7f030002;
+        public static final int story_view=0x7f030003;
+        public static final int thumbnail=0x7f030004;
     }
     public static final class string {
         public static final int app_name=0x7f050000;
         public static final int bitly_api_key=0x7f050006;
         public static final int bitly_login=0x7f050005;
         public static final int feed_url=0x7f050001;
+        public static final int information_copy=0x7f050007;
         public static final int share_button_label=0x7f050002;
         public static final int share_message=0x7f050003;
         public static final int share_message_type=0x7f050004;
