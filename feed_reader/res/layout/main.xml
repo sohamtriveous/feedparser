@@ -19,6 +19,20 @@
             android:src="@drawable/feeder_logo" />
     </LinearLayout>
 
+    <!-- RelativeLayout
+        android:id="@+id/loadingSpinnerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+            android:gravity="center" >
+
+        <ProgressBar
+            android:id="@android:id/progress"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        
+    </RelativeLayout -->
+
     <ListView
         android:id="@+id/android:list"
         style="@style/styleName"

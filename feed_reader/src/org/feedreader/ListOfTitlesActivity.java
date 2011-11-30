@@ -17,11 +17,16 @@ import android.widget.TextView;
 
 public class ListOfTitlesActivity extends ListActivity {
 
+	private View spinnerContainer;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		List<String> titles = new ArrayList<String>();
 		List<FeedItem> feedItems = new ArrayList<FeedItem>();
+		setContentView(R.layout.main);
+//		spinnerContainer = findViewById(R.id.loadingSpinnerContainer);
+
 		try {
 			RSSParser rssParser = new RSSParser(getString(R.string.feed_url));
 			feedItems = rssParser.getListOfItemsFromFeed();
@@ -31,8 +36,8 @@ public class ListOfTitlesActivity extends ListActivity {
 		} catch (Exception exception) {
 			exception.printStackTrace();
 		}
-		setContentView(R.layout.main);
 
+//		spinnerContainer.setVisibility(View.GONE);
 		FeedDataAdapter feedDataAdapter = new FeedDataAdapter(this, feedItems);
 		this.setListAdapter(feedDataAdapter);
 	}
