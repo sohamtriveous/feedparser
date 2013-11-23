@@ -6,12 +6,16 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.parsers.SAXParserFactory;
+
+import org.xml.sax.InputSource;
+import org.xml.sax.XMLReader;
+
 import android.sax.Element;
 import android.sax.EndElementListener;
 import android.sax.EndTextElementListener;
 import android.sax.RootElement;
 import android.util.Log;
-import android.util.Xml;
 
 public class RSSParser {
 
@@ -55,8 +59,12 @@ public class RSSParser {
 				new RSSParserEndTextElementListener(feedItem, CONTENT_FIELD));
 		itemElement.getChild(LINK_URI, LINK).setEndTextElementListener(
 				new RSSParserEndTextElementListener(feedItem, LINK_FIELD));
-		Xml.parse(feedURL.openStream(), Xml.Encoding.UTF_8, root
-				.getContentHandler());
+		SAXParserFactory factory = SAXParserFactory.newInstance();
+		XMLReader reader = factory.newSAXParser().getXMLReader();
+		reader.setContentHandler(root.getContentHandler());
+		reader.parse(new InputSource(feedURL.openStream()));
+//		Xml.parse(feedURL.openStream(), Xml.Encoding.UTF_8, root
+//				.getContentHandler());
 		return listOfItems;
 	}
 
