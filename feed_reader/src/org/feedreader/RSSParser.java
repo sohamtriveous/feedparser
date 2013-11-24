@@ -1,34 +1,25 @@
 package org.feedreader;
 
-import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.parsers.SAXParserFactory;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.xml.sax.InputSource;
-import org.xml.sax.XMLReader;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 
-import android.sax.Element;
-import android.sax.EndElementListener;
-import android.sax.EndTextElementListener;
-import android.sax.RootElement;
 import android.util.Log;
 
 public class RSSParser {
 
-	private static final String LINK_FIELD = "contentURL";
-	private static final String CONTENT_FIELD = "content";
-	private static final String CHANNEL = "channel";
-	private static final String ROOT_ELEMENT = "rss";
 	private static final String TITLE = "title";
 	private static final String ITEM = "item";
-	private static final String CONTENT_URI = "http://purl.org/rss/1.0/modules/content/";
-	private static final String CONTENT = "encoded";
-	private static final String LINK_URI = "http://rssnamespace.org/feedburner/ext/1.0";
-	private static final String LINK = "origLink";
+	private static final String CONTENT = "content:encoded";
+	private static final String LINK = "link";
 
 	private URL feedURL = null;
 
@@ -43,54 +34,30 @@ public class RSSParser {
 	}
 
 	public List<FeedItem> getListOfItemsFromFeed() throws Exception {
-		final List<FeedItem> listOfItems = new ArrayList<FeedItem>();
-		final FeedItem feedItem = new FeedItem();
-		RootElement root = new RootElement(ROOT_ELEMENT);
-		Element itemElement = root.getChild(CHANNEL).getChild(ITEM);
-		itemElement.setEndElementListener(new EndElementListener() {
-			public void end() {
-				listOfItems.add(feedItem.copy());
-			}
-		});
+		List<FeedItem> listOfItems = new ArrayList<FeedItem>();
+		FeedItem feedItem = new FeedItem();
+		try {
+			DocumentBuilder builder = DocumentBuilderFactory.newInstance()
+					.newDocumentBuilder();
+			Document doc = builder.parse(feedURL.openStream());
 
-		itemElement.getChild(TITLE).setEndTextElementListener(
-				new RSSParserEndTextElementListener(feedItem, TITLE));
-		itemElement.getChild(CONTENT_URI, CONTENT).setEndTextElementListener(
-				new RSSParserEndTextElementListener(feedItem, CONTENT_FIELD));
-		itemElement.getChild(LINK_URI, LINK).setEndTextElementListener(
-				new RSSParserEndTextElementListener(feedItem, LINK_FIELD));
-		SAXParserFactory factory = SAXParserFactory.newInstance();
-		XMLReader reader = factory.newSAXParser().getXMLReader();
-		reader.setContentHandler(root.getContentHandler());
-		reader.parse(new InputSource(feedURL.openStream()));
-//		Xml.parse(feedURL.openStream(), Xml.Encoding.UTF_8, root
-//				.getContentHandler());
+			NodeList items = doc.getElementsByTagName(ITEM);
+			for (int i = 0; i < items.getLength(); i++) {
+				feedItem = new FeedItem();
+				Element item = (Element) items.item(i);
+				feedItem.setTitle(getValue(item, TITLE));
+				feedItem.setContent(getValue(item, CONTENT));
+				feedItem.setContentURL(getValue(item, LINK));
+				listOfItems.add(feedItem);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return listOfItems;
 	}
 
-	private class RSSParserEndTextElementListener implements
-			EndTextElementListener {
-
-		private String setterMethodName = "set";
-		private FeedItem feedItem;
-
-		RSSParserEndTextElementListener(FeedItem feedItem, String field) {
-			String firstLetter = new String("" + field.charAt(0));
-			this.setterMethodName += field.replaceFirst(firstLetter,
-					firstLetter.toUpperCase());
-			this.feedItem = feedItem;
-		}
-
-		@Override
-		public void end(String body) {
-			try {
-				Method method = feedItem.getClass().getMethod(setterMethodName,
-						String.class);
-				method.invoke(feedItem, body);
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
-
-		}
+	private String getValue(Element parent, String nodeName) {
+		return parent.getElementsByTagName(nodeName).item(0).getFirstChild()
+				.getNodeValue();
 	}
 }
