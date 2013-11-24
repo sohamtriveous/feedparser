@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
+import org.robolectric.tester.org.apache.http.FakeHttpLayer;
 import org.robolectric.util.ActivityController;
 
 import android.app.ListActivity;
@@ -59,14 +60,10 @@ public class ListOfTitlesActivityTest {
 	@Test
 	public void onCreate_shouldShowTheFeedItemsInListView() {
 
-		// Robolectric.addPendingHttpResponse(200, EXPECTED_XML_RESPONSE);
-		
 		Robolectric.clearHttpResponseRules();
-		Robolectric.addHttpResponseRule("yourstory/news", EXPECTED_XML_RESPONSE);
 		Robolectric.addPendingHttpResponse(200, EXPECTED_XML_RESPONSE);
 		activityController.create();
 		ListActivity activity = (ListActivity) activityController.get();
-		
 		assertEquals(2, activity.getListView().getCount());
 	}
 
