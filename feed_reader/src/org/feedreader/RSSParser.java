@@ -8,6 +8,10 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -21,16 +25,11 @@ public class RSSParser {
 	private static final String CONTENT = "content:encoded";
 	private static final String LINK = "link";
 
-	private URL feedURL = null;
+	private String feedURL = null;
 
 	public RSSParser(String urlString) throws Exception {
 		Log.d("RSSParser", "urlString " + urlString);
-		try {
-			feedURL = new URL(urlString);
-			Log.d("RSSParser", "Actual URL " + feedURL.toString());
-		} catch (MalformedURLException exception) {
-			throw new Exception("Invalid URL Exception");
-		}
+		feedURL = urlString;
 	}
 
 	public List<FeedItem> getListOfItemsFromFeed() throws Exception {
@@ -39,8 +38,10 @@ public class RSSParser {
 		try {
 			DocumentBuilder builder = DocumentBuilderFactory.newInstance()
 					.newDocumentBuilder();
-			Document doc = builder.parse(feedURL.openStream());
-
+			HttpClient httpClient = new DefaultHttpClient();
+			HttpGet get = new HttpGet(feedURL);
+			HttpResponse response = httpClient.execute(get);
+			Document doc = builder.parse(response.getEntity().getContent());
 			NodeList items = doc.getElementsByTagName(ITEM);
 			for (int i = 0; i < items.getLength(); i++) {
 				feedItem = new FeedItem();
@@ -51,6 +52,7 @@ public class RSSParser {
 				listOfItems.add(feedItem);
 			}
 		} catch (Exception e) {
+			Log.w("feed", "Exception "+e.getMessage());
 			e.printStackTrace();
 		}
 		return listOfItems;
