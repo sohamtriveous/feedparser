@@ -8,6 +8,7 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,7 @@ public class ListOfTitlesActivity extends ListActivity {
 		List<FeedItem> feedItems = new ArrayList<FeedItem>();
 		setContentView(R.layout.main);
 //		spinnerContainer = findViewById(R.id.loadingSpinnerContainer);
-
+		Log.d("feedparser", "inside oncreate");
 		try {
 			RSSParser rssParser = new RSSParser(getString(R.string.feed_url));
 			feedItems = rssParser.getListOfItemsFromFeed();
