@@ -1,7 +1,9 @@
 Sample project for Robolectric tests
 ==========
 
-This is a sample project with examples on Robolectric tests which was used for DroidCon India 2013 Workshop. 
+This is a sample project with examples on Robolectric tests which was used for DroidCon India 2013 Workshop. The presentation can be found in the following link
+
+http://www.slideshare.net/leenasn/droid-con-2013-workshop-unit-testing-in-android-robolectirc
 
 Instructions on how to setup a test project
 =============
