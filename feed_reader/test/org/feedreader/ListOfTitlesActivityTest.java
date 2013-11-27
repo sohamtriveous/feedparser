@@ -57,7 +57,6 @@ public class ListOfTitlesActivityTest {
 		  
 		  ListActivity activity = (ListActivity)activityController.get();
 		  ListView view = activity.getListView();
-		  view.layout(0, 0, 100, 1000);
 		  view.performItemClick(view.getChildAt(0), 0, 0);
 		  
 		  ShadowActivity shadowActiviy = Robolectric.shadowOf(activity);
